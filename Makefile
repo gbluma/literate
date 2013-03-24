@@ -8,4 +8,5 @@ test:
 	valgrind ./literate -d example.lc
 
 run:
-	./literate -s example.lc
+	./literate -s example.lc > example.c
+	./literate -d example.lc > example.md

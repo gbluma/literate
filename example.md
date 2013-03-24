@@ -6,18 +6,6 @@ literate code is expressed primarly as a comment, with executable code peppered 
 
 Code sections are defined as a right angle-bracket in the first position of the line.
 
-> /* This is an exportable chunk of code */
-> 
-> #include <stdio.h>
-> #include <stdlib.h>
->
-> int main() {
->   printf("hello world\n");
->   return 0;
-> }
->
 
 This is not code.
 
-> /* This is code */
->
