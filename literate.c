@@ -8,9 +8,9 @@ main(int argc, char** argv)
 {
   if (argc < 3) {
     // print usage
-    perror("Usage: literate -[s|d] <input>\n");
-    perror("  Ex.: literate -s main.lc > main.c\n");
-    perror("  Ex.: literate -d main.lc > main.md\n");
+    printf("Usage: literate -[s|d] <input>\n");
+    printf("  Ex.: literate -s main.lc > main.c\n");
+    printf("  Ex.: literate -d main.lc > main.md\n");
     exit(EXIT_FAILURE);
   }
 
