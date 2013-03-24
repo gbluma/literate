@@ -14,7 +14,7 @@ literate -d example.lc > example.md
 # Formatting
 
 There are only two rules. First, normal text is considered a comment. Second, lines that start
-with ">" are considered code.
+with ">" are considered code. But it works on any language.
 
 ~~~~
 This is a top level comment.
