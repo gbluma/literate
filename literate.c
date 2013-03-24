@@ -45,14 +45,14 @@ main(int argc, char** argv)
       continue; 
 
     } else if (last_char_was_newline && ch == '>') { 
-			// ... update parser state 
+      // ... update parser state 
       in_code = 1;
       continue;
 
-		} else if (last_char_was_newline && ch == ' ') {
-			// ... skip first space after ">"
-			last_char_was_newline = 0;
-	 		continue;
+    } else if (last_char_was_newline && ch == ' ') {
+      // ... skip first space after ">"
+      last_char_was_newline = 0;
+      continue;
 
     } 
     last_char_was_newline = 0;
@@ -63,7 +63,7 @@ main(int argc, char** argv)
     } 
   }
 
-	// close the open file
+  // close the open file
   fclose(fp);
 
   return EXIT_SUCCESS;
