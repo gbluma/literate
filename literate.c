@@ -52,6 +52,9 @@ main(int argc, char** argv)
     } else if (last_char_was_newline && ch == '>') { 
       // ... we've detected a code block
       in_code = 1;
+
+      // output indented code block for markdown
+      if (in_desired_block) printf("    "); 
       continue;
 
     } else if (last_char_was_newline && ch == ' ') {
