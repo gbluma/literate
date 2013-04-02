@@ -28,24 +28,29 @@ main(int argc, char** argv)
   
   int last_char_was_newline = 0; // false
   int in_code = 0;               // false
+  int in_desired_block = 0;      // false
   char ch = ' ';                 // a safe default
 
   // loop through every character
   while ( (ch = (char) fgetc(fp) ) != EOF ) {
 
+    // an awkward boolean logic, but this figures out whether this character should be visible.
+    in_desired_block = (!should_print_code || (in_code == should_print_code));
+
     // a super simple parser
     if (ch == '\n') {
-
-      // don't forget to echo the newline
-      if (in_code == should_print_code) { printf("%c",ch); }
-
       // update parser state
       last_char_was_newline = 1; 
       in_code = 0; 
+
+      // print newline when in desired block
+      if (in_desired_block) { 
+        printf("%c",ch); 
+      }
       continue; 
 
     } else if (last_char_was_newline && ch == '>') { 
-      // ... update parser state 
+      // ... we've detected a code block
       in_code = 1;
       continue;
 
@@ -57,10 +62,9 @@ main(int argc, char** argv)
     } 
     last_char_was_newline = 0;
 
-    // if we are in the block we expect, output code
-    if (in_code == should_print_code) {
-      printf("%c",ch);
-    } 
+    // if we should, output the current character
+    if (in_desired_block) printf("%c",ch); 
+
   }
 
   // close the open file
